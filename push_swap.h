@@ -24,18 +24,12 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-typedef struct s_vars
-{
-	int		size;
-	int		maximum;
-}					t_vars;
-
 t_stack		*ft_lstbeforelast(t_stack *lst);
 int			ft_put_tab_to_lst(int *tab, t_stack **stack_a, int i, int split);
 int			ft_parse_argument(char **av, int i, t_stack **stack_a);
 int			ft_parse(int ac, char **av, t_stack **stack_a);
 int			ft_check_str(char *str, int *nbr);
-int			ft_check_atoi(unsigned int nb, int sign, int *nbr, int valid);
+int			ft_check_atoi(unsigned long long nb, int sign, int *nbr, int valid);
 int			ft_atoi(const char *str, int *nbr);
 int			ft_split(char const *s, char c, int **tab);
 void		ft_sort(t_stack **stack_a, int size);

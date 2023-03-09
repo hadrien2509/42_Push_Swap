@@ -6,7 +6,7 @@
 /*   By: hgeissle <hgeissle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 18:46:42 by hgeissle          #+#    #+#             */
-/*   Updated: 2023/03/06 12:50:58 by hgeissle         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:52:47 by hgeissle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ int	main(int ac, char **av)
 	if (size == 0)
 		return (0);
 	ft_sort(&stack_a, size);
+	ft_lstclear(&stack_a);
 	return (0);
 }

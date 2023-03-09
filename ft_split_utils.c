@@ -12,22 +12,21 @@
 
 #include "push_swap.h"
 
-int	ft_check_atoi(unsigned int nb, int sign, int *nbr, int valid)
+int	ft_check_atoi(unsigned long long nb, int sign, int *nbr, int valid)
 {
 	if (nb > 2147483647 && sign == 1)
-		return (-1);
+		return (0);
 	if (nb > 2147483648 && sign == -1)
-		return (-1);
-	*nbr = sign * (int)nb;
+		return (0);
 	return (valid);
 }
 
 int	ft_atoi(const char *str, int *nbr)
 {
-	int				i;
-	int				sign;
-	unsigned long	nb;
-	int				valid;
+	int					i;
+	int					sign;
+	unsigned long long	nb;
+	int					valid;
 
 	i = 0;
 	sign = 1;
@@ -39,15 +38,16 @@ int	ft_atoi(const char *str, int *nbr)
 			sign *= -1;
 		i++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9' && valid)
 	{
 		nb = nb * 10 + (str[i] - '0');
 		i++;
 		valid = 1;
+		valid = ft_check_atoi(nb, sign, nbr, valid);
 	}
 	if (str[i] != '\0')
 		return (-1);
-	valid = ft_check_atoi(nb, sign, nbr, valid);
+	*nbr = sign * (int)nb;
 	return (valid);
 }
 
@@ -59,7 +59,7 @@ int	ft_check_str(char *str, int *nbr)
 		return (-1);
 	atoi_check = ft_atoi(str, nbr);
 	free(str);
-	if (atoi_check == -1)
+	if (atoi_check != 1)
 		return (-1);
 	return (0);
 }
