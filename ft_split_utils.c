@@ -6,7 +6,7 @@
 /*   By: hgeissle <hgeissle@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:23:28 by hgeissle          #+#    #+#             */
-/*   Updated: 2023/03/05 19:09:31 by hgeissle         ###   ########.fr       */
+/*   Updated: 2023/03/09 16:05:44 by hgeissle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	ft_check_atoi(unsigned long long nb, int sign, int *nbr, int valid)
 		return (0);
 	if (nb > 2147483648 && sign == -1)
 		return (0);
+	*nbr = sign * (int)nb;
 	return (valid);
 }
 
@@ -47,7 +48,6 @@ int	ft_atoi(const char *str, int *nbr)
 	}
 	if (str[i] != '\0')
 		return (-1);
-	*nbr = sign * (int)nb;
 	return (valid);
 }
 
